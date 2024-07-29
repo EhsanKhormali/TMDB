@@ -3,7 +3,7 @@ package com.enoca.tmdb.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class MovieDto(
     @SerializedName("adult")
     val adult: Boolean?, // false
     @SerializedName("backdrop_path")
@@ -11,7 +11,7 @@ data class Result(
     @SerializedName("genre_ids")
     val genreIds: List<Int?>?,
     @SerializedName("id")
-    val id: Int?, // 573435
+    val id: Int, // 573435
     @SerializedName("original_language")
     val originalLanguage: String?, // en
     @SerializedName("original_title")

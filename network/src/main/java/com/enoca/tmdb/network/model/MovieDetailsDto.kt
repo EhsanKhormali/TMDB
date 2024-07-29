@@ -9,7 +9,7 @@ data class MovieDetailsDto(
     @SerializedName("backdrop_path")
     val backdropPath: String?, // /tncbMvfV0V07UZozXdBEq4Wu9HH.jpg
     @SerializedName("belongs_to_collection")
-    val belongsToCollection: BelongsToCollection?,
+    val movieCollectionDto: MovieCollectionDto?,
     @SerializedName("budget")
     val budget: Int?, // 100000000
     @SerializedName("genres")

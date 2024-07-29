@@ -3,7 +3,7 @@ package com.enoca.tmdb.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class BelongsToCollection(
+data class MovieCollectionDto(
     @SerializedName("backdrop_path")
     val backdropPath: String?, // /k9hhSHg5GS4UgWQC6MHBOZrarji.jpg
     @SerializedName("id")

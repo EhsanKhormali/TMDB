@@ -3,6 +3,9 @@ package com.enoca.tmdb.network.di
 import com.enoca.tmdb.network.AuthenticationInterceptor
 import com.enoca.tmdb.network.SessionManager
 import com.enoca.tmdb.network.TmdbApi
+import com.enoca.tmdb.network.TmdbNetworkDataSource
+import com.enoca.tmdb.network.retrofit.TmdbRetrofitDataSource
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,5 +48,11 @@ internal object NetworkModule {
             .client(okHttpClient)
             .build()
             .create(TmdbApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun bindTmdbNetworkDataSource(instance:TmdbRetrofitDataSource):TmdbNetworkDataSource{
+        return instance
     }
 }
