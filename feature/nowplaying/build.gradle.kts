@@ -1,13 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hitl.android)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.enoca.tmdb.data"
-    compileSdk = 35
+    namespace = "com.enoca.tmdb.nowplaying"
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 26
@@ -35,11 +33,9 @@ android {
 }
 
 dependencies {
-    api(project(":network"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
