@@ -39,6 +39,8 @@ internal object NetworkModule {
         .addInterceptor(authInterceptor)
         .build()
 
+    @Singleton
+    @Provides
     fun provideTmdbApi(
         okHttpClient: OkHttpClient
     ):TmdbApi{
@@ -52,7 +54,7 @@ internal object NetworkModule {
 
     @Singleton
     @Provides
-    fun bindTmdbNetworkDataSource(instance:TmdbRetrofitDataSource):TmdbNetworkDataSource{
+    fun bindTmdbNetworkDataSource(instance:TmdbRetrofitDataSource):TmdbNetworkDataSource {
         return instance
     }
 }

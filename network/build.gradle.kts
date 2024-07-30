@@ -3,7 +3,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hitl.android)
+    alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
 }
 
@@ -46,10 +46,8 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    implementation(libs.material)
     implementation(libs.retrofit.core)
     implementation(libs.converter.gson)
     testImplementation(libs.junit)
