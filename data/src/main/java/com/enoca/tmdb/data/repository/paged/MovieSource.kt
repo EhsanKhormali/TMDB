@@ -2,10 +2,11 @@ package com.enoca.tmdb.data.repository.paged
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.enoca.tmdb.data.model.MovieListType
 import com.enoca.tmdb.data.repository.MovieRepository
 import com.enoca.tmdb.network.model.MovieDto
 
-class MovieSource(private val movieService: MovieRepository,private val listType:Int) :
+class MovieSource(private val movieService: MovieRepository,private val listType:MovieListType) :
     PagingSource<Int, MovieDto>() {
     /// The refresh key is used for the initial load of the next PagingSource, after invalidation
     override fun getRefreshKey(state: PagingState<Int, MovieDto>): Int? {
@@ -24,23 +25,23 @@ class MovieSource(private val movieService: MovieRepository,private val listType
             var totalPages = 1
             val movieListResponse =
                 when(listType) {
-                    1 -> {
+                    MovieListType.NOW_PLAYING -> {
                         val result =movieService.getNowPlayingMovies(nextPage)
                         totalPages=result.totalPages?:1
                         result.movies
                     }
 
-                    2 -> {
+                    MovieListType.POPULAR -> {
                         val result =movieService.getPopularMovies(nextPage)
                         totalPages=result.totalPages?:1
                         result.results
                     }
-                    3 -> {
+                    MovieListType.UPCOMING -> {
                         val result =movieService.getUpcomingMovies(nextPage)
                         totalPages=result.totalPages?:1
                         result.movies
                     }
-                    4 -> {
+                    MovieListType.TOP_RATED -> {
                         val result =movieService.getTopRatedMovies(nextPage)
                         totalPages=result.totalPages?:1
                         result.results
