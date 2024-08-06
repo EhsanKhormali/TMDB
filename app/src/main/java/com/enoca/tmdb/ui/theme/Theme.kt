@@ -9,7 +9,22 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+
+@Immutable
+data class GradientColors(
+    val top: Color = Color.Unspecified,
+    val bottom: Color = Color.Unspecified,
+    val container: Color = Color.Unspecified,
+)
+
+/**
+ * A composition local for [GradientColors].
+ */
+val LocalGradientColors = staticCompositionLocalOf { GradientColors() }
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,

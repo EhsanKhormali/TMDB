@@ -8,6 +8,8 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration.Short
+import androidx.compose.material3.SnackbarResult.ActionPerformed
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -23,6 +25,7 @@ import androidx.navigation.compose.rememberNavController
 import com.enoca.tmdb.navigation.Home
 import com.enoca.tmdb.navigation.TmdbNavigation
 import com.enoca.tmdb.nowplaying.NowPlayingScreen
+import com.enoca.tmdb.ui.TmdbApp
 import com.enoca.tmdb.ui.theme.TMDBTheme
 import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,24 +50,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TMDBTheme {
-                TmdbNavigation(navController = rememberNavController(),startingScreen = Home)
+                TmdbApp()
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TMDBTheme {
-        Greeting("Android")
     }
 }
